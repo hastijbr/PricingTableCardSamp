@@ -1,0 +1,128 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto Condensed', sans-serif;
+    text-transform: capitalize;
+}
+
+.container{
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    background: url(./images/1.jpg) no-repeat;
+    background-size: cover;
+    z-index: 0;
+    position: relative;
+    text-align: center;
+}
+
+.container::before, .container::after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    pointer-events: none;
+    z-index: -1;
+}
+
+
+.container::before{
+    clip-path: circle(20% at 10% 10%);
+    background: linear-gradient(rgba(255,1,19,1), rgba(255,65,168,1));
+}
+
+
+.container::after{
+    clip-path: circle(25% at 90% 90%);
+    background: linear-gradient(rgba(205,0,255,1), rgba(0,189,255,1));
+}
+
+.container .box{
+    background: rgba(255,255,255,.1);
+    margin: 15px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, .3);
+    border-radius: 10px;
+    width: 300px;
+    height: 416px;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    transition: .2s linear;
+    backdrop-filter: blur(5px);
+    z-index: 0;
+    color: #eee;
+}
+
+.container .box::before{
+    content: '';
+    position: absolute;
+    top: -30%;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 300px;
+    width: 300px;
+    background: rgba(255,255,255,.2);
+    border-radius: 50%;
+    z-index: -10;
+}
+
+.container .box:hover{
+    transform: scale(1.08);
+}
+
+.container .box .title{
+    color: rgb(199, 196, 196);
+    font-size: 45px;
+    padding: 5px 0;
+    padding-top: 30px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.container .box .price{
+    color: #fff;
+    font-size: 42px;
+    padding: 15px 0;
+    padding-bottom: 25px;
+}
+
+.container .box .price span{
+    font-size: 20px;
+    padding: 0 2px;
+}
+
+.container .box ul{
+    padding: 25px 0;
+    list-style: none;
+}
+
+.container .box ul li{
+    font-size: 18px;
+    color: #eee;
+    padding: 7px 0;
+}
+
+.container .box a{
+    display: block;
+    text-decoration: none;
+    padding: 10px 0;
+    background: rgba(255,255,255,.2);
+    color: #fff;
+    font-size: 20px;
+}
+
+.container .box a:hover{
+    background: rgba(255,255,255,.4);
+}
+
+@media (max-width:768px){
+
+    .container::before{
+        clip-path: circle(20% at 10% 30%);
+    }
+}
